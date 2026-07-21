@@ -1,5 +1,5 @@
 ---
-description: Configura o plugin — assinatura, preferências e conexão com a HostGator (roda uma vez)
+description: Configura o plugin — assinatura, preferências e conexão com a VM KVM2 da Hostinger via SSH (roda uma vez)
 ---
 
 Configure o ambiente do Prospector de Sites. Siga esta ordem:
@@ -22,17 +22,13 @@ Colete:
 - **Leads qualificados por busca**: padrão 10.
 - **Modo de envio da proposta**: padrão "criar rascunho no Gmail para revisão" (recomendado). Alternativa: enviar direto.
 
-## 4. Conexão com a HostGator
+## 4. Conexão com a VM KVM2 (Hostinger)
 
-Pergunte se o usuário já contratou a hospedagem HostGator.
+Este fork não usa HostGator, FTP nem cPanel — publica direto na VM KVM2 da Artweb (Hostinger, Nginx) via chave SSH. Não há senha nenhuma pra coletar ou guardar.
 
-- **Se ainda não contratou**: explique brevemente que ele precisa de um plano que aceite múltiplos sites (plano M ou superior), que ao contratar ganha domínio grátis, e que depois de ativar deve voltar e rodar `/setup` de novo. Salve o config parcial e encerre.
-- **Se já contratou**: NÃO colete nenhum dado da HostGator pelo chat (nem usuário, nem servidor — e JAMAIS a senha). Tudo vai num lugar só, a aba Configurações do dashboard:
-  1. Instrua: abra o dashboard (`iniciar-dashboard.bat` na pasta conectada) → aba **Configurações** → seção **Conexão HostGator**.
-  2. Lá ele preenche os 4 campos + senha: usuário, domínio, servidor (os três aparecem na tela inicial do cPanel, coluna "General Information") e a senha do cPanel. Clica em "Salvar conexão" → tudo vai do navegador direto pro `prospector-config.json` no computador dele, sem passar pelo chat.
-  3. Peça para ele avisar quando salvar ("salvei") — aí você LÊ o config (verificando que os campos estão preenchidos, sem nunca exibir a senha) e roda o teste de conexão.
-
-  Nunca exiba, imprima ou registre a senha em nenhuma saída. Se ele preferir, editar o `prospector-config.json` na mão também vale.
+- Confirme que o bloco `hosting` existe em `prospector-config.json` com `sshAlias` (`hostinger-kvm2`), `webroot` (`/var/www/demo.artwebcreative.com.br/prospect`), `baseUrl` (`https://demo.artwebcreative.com.br/prospect`) e `script` (caminho do `publicar-kvm2.sh`). Se não existir, crie com esses valores padrão.
+- Confirme que o alias SSH `hostinger-kvm2` está configurado em `~/.ssh/config` do usuário e que a chave funciona (`ssh hostinger-kvm2 "echo ok"`). Se não estiver, isso é responsabilidade da equipe de infra da Artweb (fora do escopo deste plugin) — avise o usuário e pare aqui.
+- O bloco `hostgator` do config é legado — mantenha vazio, nunca peça esses dados ao usuário.
 
 ## 5. Salvar e testar
 
@@ -43,19 +39,20 @@ Salve tudo em `prospector-config.json` na pasta conectada, neste formato:
   "assinatura": { "nome": "", "apresentacao": "", "whatsapp": "" },
   "prospeccao": { "nichos": ["nutricionistas", "psicologos", "advogados", "psiquiatras"], "cidade": "", "leadsPorBusca": 10 },
   "envio": { "modo": "rascunho" },
-  "hostgator": { "usuario": "", "dominio": "", "servidor": "", "senha": "", "pastaBase": "clientes" }
+  "hosting": { "provedor": "kvm2", "sshAlias": "hostinger-kvm2", "webroot": "/var/www/demo.artwebcreative.com.br/prospect", "baseUrl": "https://demo.artwebcreative.com.br/prospect", "script": "scripts/publicar-kvm2.sh" },
+  "hostgator": { "usuario": "", "dominio": "", "servidor": "", "senha": "", "pastaBase": "clientes", "_obs": "NAO USADO — Artweb publica na KVM2 via SSH (bloco 'hosting'). Manter vazio." }
 }
 ```
 
-Se os dados da HostGator foram informados, teste a conexão seguindo a skill `deploy-hostgator`: publique uma página `teste.html` simples e informe a URL pública ao usuário. Se o teste falhar, diagnostique (credenciais, servidor, método de upload) antes de concluir.
+Teste a conexão seguindo a skill `deploy-hostgator` (agora KVM2/SSH): publique uma página `teste.html` simples e informe a URL pública ao usuário. Se o teste falhar, diagnostique o alias SSH e a chave antes de concluir.
 
 ## 6. Dashboard inicial
 
 Siga a seção "Setup" da skill `dashboard-leads`: copie `dashboard-server.py` e `iniciar-dashboard.bat` para a raiz da pasta conectada, crie o banco `prospector.db` (schema da skill) e gere o `dashboard.html` do template. Explique ao usuário: duplo clique em `iniciar-dashboard.bat` abre o painel completo em http://localhost:8765 com edição/exclusão salvando no banco (requer Python no Windows; sem ele, o dashboard.html abre no modo leitura).
 
-## 7B. Entregar o manual e os scripts
+## 7B. Entregar o manual
 
-Copie da pasta do plugin para a pasta conectada (sobrescrevendo versões antigas): `manual.html` (manual do usuário) e os arquivos do publicador conforme o sistema do usuário (skill `deploy-hostgator`, references) — Windows: `publicar-agora.ps1/.bat`, `publicador-oculto.vbs`, `instalar-publicador.bat` · Mac: `publicar-agora.command`, `instalar-publicador.command` — mais o iniciador do dashboard certo (`iniciar-dashboard.bat` ou `.command`). Peça UM duplo clique no instalador do publicador (registra o publicador automático no Windows — única vez na vida; o teste de conexão do item 5 pode usar esse fluxo). Apresente o `manual.html` ao usuário com a frase: "Esse é o seu manual — guarda ele que responde 90% das dúvidas."
+Copie `manual.html` da pasta do plugin para a pasta conectada (sobrescrevendo versão antiga), mais o iniciador do dashboard certo (`iniciar-dashboard.bat` ou `.command`). Não há mais publicador local do Windows/Mac pra instalar — o deploy roda direto do sandbox via SSH (skill `deploy-hostgator`). Apresente o `manual.html` ao usuário com a frase: "Esse é o seu manual — guarda ele que responde 90% das dúvidas."
 
 ## 7. Encerrar
 
