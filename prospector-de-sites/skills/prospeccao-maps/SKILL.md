@@ -3,13 +3,13 @@ name: prospeccao-maps
 description: Esta skill deve ser usada ao prospectar clientes no Google Maps — buscar negócios bem avaliados com sites ruins, qualificar leads, avaliar qualidade de sites de terceiros e montar a planilha de leads. Acione quando o usuário disser "prospectar", "buscar clientes", "achar leads", "clientes com site ruim" ou rodar /prospectar.
 ---
 
-# Prospecção no Google Maps
+# Prospecção no Google Empresas
 
 Encontrar o cliente ouro: negócio que JÁ fatura bem (nota alta, muitas avaliações) mas perde clientes por causa de um site fraco. Não se cria demanda — conserta-se onde o dinheiro está escapando.
 
 ## Fluxo (via Claude in Chrome)
 
-1. Abrir `https://www.google.com/maps` e buscar `[nicho] em [cidade]`.
+1. Abrir `https://www.google.com/search` e buscar `[nicho] em [cidade]`. Usar os perfis exibidos no bloco Empresas como fonte dos dados.
 2. Percorrer os resultados um a um, em ordem. Para cada estabelecimento:
    - Abrir o perfil e ler nota, nº de avaliações e link do site.
    - **Filtro 1 — potencial financeiro**: nota ≥ 4.7 E avaliações ≥ 40. Reprovou → próximo.
@@ -55,4 +55,4 @@ Status possíveis: `novo`, `redesenhado`, `publicado`, `proposta enviada`. Quand
 
 - Trabalhar por região dá vantagem: menos concorrência na oferta e conhecimento local.
 - Enquanto o navegador trabalha, não interromper o fluxo com perguntas — só reportar a tabela final.
-- Se o Google Maps pedir login/captcha, pausar e avisar o usuário.
+- Se a Pesquisa Google ou o bloco Empresas pedir login/captcha, pausar e avisar o usuário.

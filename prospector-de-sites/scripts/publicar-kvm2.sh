@@ -68,4 +68,9 @@ ssh "$SSH_ALIAS" "chmod -R a+rX '$REMOTE_DIR'"
 
 echo "OK publicado:"
 echo "   pagina : $URL"
-[ "$HAS_CAPA" = "1" ] && echo "   capa   : ${URL}proposta.html"
+if [ "$HAS_CAPA" = "1" ]; then
+  echo "   capa   : ${URL}proposta.html"
+fi
+
+# sucesso explicito: sem isso, um teste falso na ultima linha viraria o exit code
+exit 0

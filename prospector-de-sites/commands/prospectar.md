@@ -13,7 +13,7 @@ Prospecte leads qualificados seguindo a skill `prospeccao-maps`.
 
 ## Execução
 
-Use as ferramentas do Claude in Chrome (carregue via ToolSearch se necessário) para abrir o Google Maps e executar o fluxo completo descrito na skill `prospeccao-maps`:
+Use as ferramentas do Claude in Chrome (carregue via ToolSearch se necessário) para abrir a Pesquisa Google e executar o fluxo completo descrito na skill `prospeccao-maps`, usando o bloco Empresas e os perfis das empresas:
 
 - Buscar "[nicho] em [cidade]"
 - Avaliar até 25 estabelecimentos ou até atingir o número de leads qualificados do config (padrão 10), o que vier primeiro

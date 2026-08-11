@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """Prospector — servidor local do dashboard (SQLite). Sem dependências: só Python padrão.
 Uso: python dashboard-server.py  (ou duplo clique em iniciar-dashboard.bat)
@@ -62,10 +62,8 @@ class App(SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.path.split('?')[0] == '/api/config':
             cfg = ler_config()
-            hg = dict(cfg.get('hostgator', {}))
-            hg['senhaDefinida'] = bool(hg.get('senha'))
-            hg.pop('senha', None)  # a senha NUNCA sai do arquivo
-            return self._json(200, {'contratante': cfg.get('contratante', {}), 'hostgator': hg})
+            hosting = dict(cfg.get('hosting', {}))
+            return self._json(200, {'contratante': cfg.get('contratante', {}), 'hosting': hosting})
         if self.path.split('?')[0] == '/api/leads':
             c = conexao(); c.row_factory = sqlite3.Row
             rows = [dict(r) for r in c.execute('SELECT * FROM leads').fetchall()]; c.close()
@@ -83,18 +81,15 @@ class App(SimpleHTTPRequestHandler):
     def do_PUT(self):
         if self.path.split('?')[0] == '/api/config':
             cfg = ler_config(); corpo = self._corpo()
-            if 'contratante' in corpo or 'hostgator' in corpo:
+            if 'contratante' in corpo or 'hosting' in corpo:
                 if 'contratante' in corpo:
                     ct = cfg.get('contratante', {})
                     ct.update({k: v for k, v in corpo['contratante'].items() if isinstance(v, str)})
                     cfg['contratante'] = ct
-                if 'hostgator' in corpo:
-                    hg = cfg.get('hostgator', {})
-                    for k, v in corpo['hostgator'].items():
-                        if not isinstance(v, str): continue
-                        if k == 'senha' and v == '': continue  # em branco = mantém a atual
-                        hg[k] = v
-                    cfg['hostgator'] = hg
+                if 'hosting' in corpo:
+                    hosting = cfg.get('hosting', {})
+                    hosting.update({k: v for k, v in corpo['hosting'].items() if isinstance(v, str)})
+                    cfg['hosting'] = hosting
             else:  # compatibilidade: corpo plano = contratante
                 ct = cfg.get('contratante', {})
                 ct.update({k: v for k, v in corpo.items() if isinstance(v, str)})
@@ -129,3 +124,5 @@ if __name__ == '__main__':
     except Exception: pass
     try: ThreadingHTTPServer(('127.0.0.1', PORTA), App).serve_forever()
     except KeyboardInterrupt: print('\nEncerrado.')
+
+
