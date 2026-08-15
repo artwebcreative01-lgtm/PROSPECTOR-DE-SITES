@@ -50,6 +50,43 @@ Contexto neuro: o lead PAGA por anúncio e mesmo assim perde cliente porque a p�
 <p>Um abraço,<br>[assinatura.nome]<br>[assinatura.apresentacao]<br>[assinatura.whatsapp]</p>
 ```
 
+### Adaptação por nicho (OBRIGATÓRIA — o e-mail fala a língua do nicho)
+
+O modelo acima é o esqueleto. Antes de escrever, adapte 4 coisas ao nicho do lead: **tratamento** (Dr./Dra./nome), **o que o cliente daquele nicho precisa SENTIR** (a credibilidade específica), **a dor do destino do anúncio** e **a automação** (tabela na skill `prospeccao-maps`). Use as palavras que o dono do nicho usa. Referência:
+
+| Nicho | Tratam. | O cliente precisa sentir | Automação |
+|---|---|---|---|
+| Nutricionista / saúde | Dr./Dra. | "posso confiar minha saúde a essa pessoa" | confirmação+lembrete de consulta (cortar faltas) |
+| Psicólogo / psiquiatra | nome (gentil) | acolhimento, sigilo, seriedade — está fragilizado | agendamento discreto + triagem inicial |
+| Advogado | Dr./Dra. | autoridade e discrição — está num problema | triagem do caso + resposta imediata |
+| Estética / salão / barbearia | nome | quero VER o resultado, agendo por impulso | agendamento+lembrete + reativação de inativo |
+| Academia / personal | nome | transformação + pertencimento | resposta instantânea + aula experimental |
+| Restaurante / delivery | nome | apetite + conveniência | reserva/pedido por WhatsApp |
+| Imobiliária / corretor | nome | confiança em ticket alto + agilidade | qualificação do lead + repasse ao corretor |
+| Pet (clínica/petshop) | nome | cuidado com o animal (emocional) | lembrete de vacina/retorno |
+
+#### Exemplos prontos por nicho (variante B)
+
+**Nutricionista** — assunto: `Dra. [Nome], vi o anúncio da sua clínica — posso mostrar algo?`
+> Oi, Dra. [Nome], tudo bem? Sou [nome], [apresentação]. Cheguei até você pelo anúncio no Instagram e fui olhar com calma: [nota]★ com [N] avaliações — dá pra ver que suas pacientes confiam e voltam. Nutricionista bem avaliada e que ainda investe em anúncio é exatamente com quem eu gosto de trabalhar.
+> Uma coisa me chamou atenção, e falo pra somar, não pra criticar: quem clica no seu anúncio quer confiar a saúde a alguém — e decide em segundos. [Seu site hoje não passa essa segurança ([motivo]) / Você ainda não tem um site próprio: a paciente cai no Instagram e boa parte desiste antes de agendar]. Autoridade vende: sem suas avaliações e sua formação à mostra num site forte, o clique que você pagou vira dúvida.
+> Posso te mostrar, sem custo e sem compromisso, como ficaria uma página que passa essa confiança na hora. E dá pra automatizar a confirmação e o lembrete de consulta no WhatsApp, pra cortar as faltas que hoje te fazem perder horário.
+> Quer ver? Responde só "quero ver" que eu preparo a prévia e te mando. Um abraço, [assinatura]
+
+**Advogado** — assunto: `Dr. [Nome], vi o anúncio do seu escritório — posso comentar?`
+> Oi, Dr. [Nome], tudo bem? Sou [nome], [apresentação]. Cheguei ao seu escritório pelo anúncio no Google e olhei com atenção: [nota]★ com [N] avaliações — reputação que, na advocacia, vale ouro. Escritório bem avaliado e que investe em anúncio é com quem eu gosto de trabalhar.
+> Reparei numa coisa, e falo pra ajudar: quem procura advogado está com um problema e precisa sentir, em segundos, que está em boas mãos. [Seu site não transmite essa autoridade ([motivo]) / Você ainda não tem um site próprio, e o cliente cai no Instagram — no direito, isso derruba a confiança]. Autoridade vende, e mais ainda aqui: sem casos, avaliações e credenciais à mostra, o clique que você pagou hesita e vai pro concorrente.
+> Posso te mostrar, sem custo e sem compromisso, como ficaria uma página que transmite essa autoridade na hora. E dá pra automatizar a triagem inicial do caso e a resposta imediata ao contato — porque cliente jurídico que espera resposta procura outro escritório.
+> Quer ver? Responde só "quero ver" que eu preparo a prévia e te mando. Um abraço, [assinatura]
+
+**Psicólogo / psiquiatra** — assunto: `[Nome], vi o seu anúncio — posso te mostrar uma ideia?`
+> Oi, [Nome], tudo bem? Sou [nome], [apresentação]. Cheguei até você pelo anúncio no Instagram e fui olhar com calma: [nota]★ com [N] avaliações — dá pra sentir o cuidado no seu trabalho. Profissional bem avaliado e que ainda investe em alcançar mais gente é com quem eu gosto de trabalhar.
+> Reparei numa coisa, e falo com delicadeza: quem clica no seu anúncio muitas vezes está fragilizado, decidindo a quem se abrir — e precisa sentir acolhimento e seriedade em segundos. [Seu site hoje não passa isso ([motivo]) / Você ainda não tem um site próprio, e a pessoa cai no Instagram — nesse momento, boa parte hesita e desiste]. Um espaço próprio, com suas palavras e suas avaliações, cria a confiança que faz alguém dar o primeiro passo.
+> Posso te mostrar, sem custo e sem compromisso, como ficaria uma página que acolhe quem seu anúncio traz. E dá pra automatizar o agendamento e uma triagem inicial discreta, pra facilitar o contato de quem já chega inseguro.
+> Quer ver? Responde só "quero ver" que eu preparo a prévia e te mando. Um abraço, [assinatura]
+
+Para nichos fora desta lista, monte o e-mail pelo esqueleto do "Modelo pronto" ajustando os 4 pontos acima e usando a automação-curinga (resposta instantânea ao lead do anúncio).
+
 ### Checklist da Variante B (BLOQUEANTE)
 
 - [ ] **ZERO link e ZERO anexo.** A prévia só existe depois da resposta — o CTA é responder, não clicar. Isso deixa o e-mail ainda mais limpo pro spam.
