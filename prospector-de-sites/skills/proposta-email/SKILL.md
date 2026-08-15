@@ -7,6 +7,64 @@ description: Esta skill deve ser usada ao escrever e enviar a proposta comercial
 
 O e-mail NÃO vende — ele desperta curiosidade e prova trabalho feito. O fechamento (preço, escopo, reunião) acontece na resposta. Um e-mail que parece de vendedor morre no spam; um e-mail que parece de uma pessoa que já trabalhou de graça pro destinatário é aberto e respondido.
 
+## Duas variantes (escolhidas pela regra do lead)
+
+O lead carrega o campo `regra` (A ou B). O e-mail muda conforme ela:
+
+- **Regra A — "site ruim" (fluxo constrói-primeiro):** a página nova JÁ está no ar. O e-mail prova o trabalho feito e o único link é a capa. Use as seções **Princípios**, **Estrutura** e a **Página-capa** abaixo.
+- **Regra B — "empresas que anunciam" (fluxo e-mail-primeiro):** ainda NÃO existe página pronta. O e-mail faz a análise, oferta (site + automação do nicho) e convida a ver uma prévia. **Só redesenhamos quem responder.** Use a seção **Variante B** abaixo — ela substitui Estrutura e não tem link nenhum.
+
+---
+
+## VARIANTE B — e-mail de análise + convite (Regra "empresas que anunciam")
+
+Contexto neuro: o lead PAGA por anúncio e mesmo assim perde cliente porque a página de destino é fraca (ou não existe). O gatilho mais forte aqui é **viés de perda** — ele já gasta pra trazer a pessoa, e ela escapa na porta. Não prometa; faça ele SENTIR o vazamento e ofereça fechar a torneira. Um único pedido: responder "quero ver".
+
+### Princípios da Variante B
+
+1. **Elogio verificável + reconhecer o investimento.** Nota real, nº de avaliações, e o fato de ele já anunciar (investe em crescer — isso merece elogio genuíno).
+2. **Viés de perda, sem ofender.** O problema não é o profissional — é o dinheiro do anúncio escapando. "Você paga pra trazer o cliente; parte dele se perde na porta de entrada." Concreto, reversível, sem culpa.
+3. **Autoridade vende (argumento central).** Quem chega pelo anúncio está FRIO — não te conhece e decide em segundos se confia. Um site forte, com as avaliações e o trabalho à mostra, cria credibilidade imediata; sem isso, o clique pago vira desconfiança e a pessoa desiste. Enquadre o site não como estética, mas como a ponte de confiança que transforma tráfego frio em cliente. Autoridade vende.
+4. **Antecipação, não entrega.** Não mande a página (não existe). Ofereça MOSTRAR como ficaria — a prévia é a recompensa que abre a dopamina. Loop aberto.
+5. **Oferta dupla, na medida.** Site novo (principal) + **uma** automação específica do nicho (secundária). Nunca listar várias — carga cognitiva mata. Uma frase, a automação mais dolorosa do nicho (ver tabela na skill `prospeccao-maps`).
+6. **Um único CTA, custo quase zero:** responder "quero ver". Sem link, sem anexo, sem agenda, sem preço.
+7. **Curto e falado.** 140-170 palavras. Leia em voz alta — se travar, reescreve.
+
+### Estrutura da Variante B
+
+- **Assunto** (≤ 60 caracteres, pessoal, cara de gente): `[Nome], vi o anúncio da [Empresa] — posso te mostrar algo?` ou `[Nome], uma ideia rápida sobre a [Empresa]`.
+- **P1 — rapport:** onde encontrou (o anúncio) + elogio específico (nota/avaliações) + reconhecer que ele investe em anúncio.
+- **P2 — a perda, sem ofensa:** o anúncio traz gente interessada, mas [ela cai num site abaixo do seu atendimento: [motivo específico] / não há um site próprio pra recebê-la — ela para no Instagram e boa parte se perde]. "Você já paga pra trazer o cliente; parte escapa logo na entrada."
+- **P3 — oferta + antecipação:** "Posso te mostrar, de graça e sem compromisso, como ficaria uma página feita pra converter quem o seu anúncio traz." + uma frase de automação do nicho ("e dá pra automatizar [automação do nicho] pra você não perder mais tempo nem cliente com isso").
+- **P4 — CTA único:** "Quer ver? Responde só 'quero ver' que eu preparo a prévia da sua página e te mando."
+- **Assinatura** completa do config (nome, apresentação, WhatsApp).
+
+### Modelo pronto (corpo HTML minimalista — ajuste os [campos])
+
+```html
+<p>Oi, [Nome], tudo bem?</p>
+<p>Sou [assinatura.nome], [assinatura.apresentacao]. Cheguei na [Empresa] pelo anúncio [no Google/no Instagram] e fui olhar com calma: [nota]★ com [N] avaliações — dá pra ver que quem passa por você sai satisfeito. Empresa com essa reputação e que ainda investe em anúncio é exatamente o tipo de negócio que eu gosto de ajudar.</p>
+<p>Reparei numa coisa, e falo como quem quer ajudar, não criticar: seu anúncio traz gente interessada, mas [ela cai num site que não está à altura do seu atendimento ([motivo]) / não existe um site próprio pra recebê-la — ela para no Instagram e boa parte se perde]. E quem chega pelo anúncio ainda não te conhece: decide em segundos se confia. Sem um site forte mostrando suas avaliações e seu trabalho, essa confiança não se forma — e o clique que você pagou vira desconfiança. Autoridade vende. Você já paga pra trazer o cliente; parte dele escapa logo na porta de entrada.</p>
+<p>Posso te mostrar — de graça e sem compromisso — como ficaria uma página feita pra converter justamente quem o seu anúncio traz, com a credibilidade que faz a pessoa escolher você na hora. E, se fizer sentido pro seu dia a dia, dá pra automatizar [automação do nicho] pra você não perder mais tempo nem cliente com isso.</p>
+<p>Quer ver? Responde só “quero ver” que eu preparo a prévia da sua página e te mando.</p>
+<p>Um abraço,<br>[assinatura.nome]<br>[assinatura.apresentacao]<br>[assinatura.whatsapp]</p>
+```
+
+### Checklist da Variante B (BLOQUEANTE)
+
+- [ ] **ZERO link e ZERO anexo.** A prévia só existe depois da resposta — o CTA é responder, não clicar. Isso deixa o e-mail ainda mais limpo pro spam.
+- [ ] **Primeira linha 100% personalizada** (nome + fato real das avaliações + o anúncio).
+- [ ] **A perda é concreta e sem culpa** — o alvo é o dinheiro do anúncio escapando, nunca o profissional.
+- [ ] **UMA automação só**, específica do nicho (tabela na skill `prospeccao-maps`). Nunca uma lista.
+- [ ] **Um único pedido:** responder "quero ver". Sem preço, sem agenda, sem segundo CTA.
+- [ ] **Sem palavras-gatilho** (grátis como isca, promoção, imperdível, urgente, garantido), sem CAIXA ALTA / "!!" / emoji no assunto, assunto ≤ 60 caracteres.
+- [ ] **130-160 palavras**, lido em voz alta sem travar.
+- [ ] Remetente = Gmail pessoal ativo do usuário; envios 1 a 1.
+
+---
+
+## REGRA A — proposta com página pronta (fluxo constrói-primeiro)
+
 ## Princípios
 
 1. **Rapport primeiro.** Abrir com elogio ESPECÍFICO e verificável: a nota no Google, uma avaliação real citada, uma credencial do site. Nunca elogio genérico.

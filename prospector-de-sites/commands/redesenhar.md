@@ -8,8 +8,12 @@ Redesenhe as páginas dos leads seguindo a skill `redesign-premium`. Ela é obri
 ## Seleção dos clientes
 
 1. Leia `prospector-config.json` e `leads.md` na pasta conectada.
-2. Se `$ARGUMENTS` trouxer URLs ou nomes, use-os. Senão, selecione os leads com status `novo` mais bem ranqueados — **mínimo de 5 clientes por lote** (se houver menos de 5 leads novos, use todos e avise que rodar `/prospectar` de novo aumenta o lote).
-3. Confirme a lista com o usuário antes de começar.
+2. Selecione conforme a regra do lead:
+   - **Regra A ("site ruim"):** leads com status `novo` mais bem ranqueados — este é o passo que CONSTRÓI antes do e-mail.
+   - **Regra B ("empresas que anunciam"):** SOMENTE leads com status `respondeu` (a pessoa respondeu o e-mail de convite pedindo pra ver a prévia). **Nunca redesenhe lead Regra B que ainda não respondeu** — o modelo é construir só pra quem levantou a mão. Se não há nenhum `respondeu`, avise o usuário e pare (rode `/respostas` primeiro).
+   - Se `$ARGUMENTS` trouxer URLs ou nomes, use-os (o usuário pode forçar um lead específico).
+3. Lote: para a Regra A, **mínimo de 5 por lote** (se houver menos de 5 novos, use todos e avise). A Regra B não tem mínimo — redesenhe quantos responderam, mesmo que seja 1 (é lead quente, não espere juntar lote).
+4. Confirme a lista com o usuário antes de começar.
 
 ## Para cada cliente do lote
 
@@ -43,5 +47,6 @@ A entrega final ao usuário DEVE conter, nesta ordem, sem exceção:
 2. **Resumo de 1 linha por cliente** (o que melhorou).
 3. **Confirmação do dashboard**: frase explícita "Dashboard atualizado: [N] leads com status redesenhado" após atualizar o banco/dashboard conforme a skill `dashboard-leads` (se a pasta ainda não tem dashboard, CRIE-o agora pela skill — pasta nova nunca é desculpa para pular).
 4. Orientação curta: `comparar.html` = antes/depois lado a lado · `[slug]-editor.html` = editar textos/imagens · próximo passo `/publicar`.
+   - **Regra B:** depois de `/publicar`, NÃO mande cold mail — o lead já respondeu. Responda no PRÓPRIO e-mail dele (mesma thread) com o link da prévia: "Preparei como prometi, olha aí: [link]". Contato quente, pessoal. Aí atualize o status para `fechado` quando avançar pra proposta comercial/preço.
 
 É PROIBIDO encerrar a resposta sem os itens 1 e 3. Se qualquer arquivo do checklist não existir, gere-o antes de responder.

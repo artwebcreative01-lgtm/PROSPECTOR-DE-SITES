@@ -1,7 +1,7 @@
 {
   "name": "prospector-de-sites",
-  "version": "2.1.0-kvm2",
-  "description": "COMECE PELO /setup. Prospecção semi-automática de clientes: encontra negócios bem avaliados com sites ruins, redesenha as páginas com estética premium e envia proposta anti-spam por e-mail via Gmail, com follow-up. Fork Artweb: o /publicar publica na VPS Hostinger KVM2 (Nginx) por SSH — NÃO na HostGator. Leads em planilha do Google Sheets e dashboard local (kanban, contratos e financeiro).",
+  "version": "2.2.0-kvm2",
+  "description": "COMECE PELO /setup. Prospecção semi-automática de clientes com DUAS regras escolhidas na hora: (A) negócios bem avaliados com site ruim — constrói primeiro; (B) empresas que anunciam com site ruim ou sem site — e-mail de análise+convite primeiro (site novo + automação do nicho) e só redesenha quem responder. Redesign premium + proposta anti-spam por Gmail com follow-up. Fork Artweb: o /publicar publica na VPS Hostinger KVM2 (Nginx) por SSH — NÃO na HostGator. Leads em Google Sheets e dashboard local.",
   "author": {
     "name": "Helio Arreche"
   },

@@ -39,6 +39,37 @@ Nome, nota, nº de avaliações, telefone, WhatsApp, e-mail, URL do site, motivo
 
 **E-MAIL É OBRIGATÓRIO.** A proposta vai por e-mail — lead sem e-mail público não fecha o ciclo. Procure nesta ordem: site (rodapé e página de contato), links `mailto:`, home do site da clínica onde atende, busca no Google por "[nome] + email/contato". Se NÃO encontrar e-mail: **descarte o lead, registre na lista de descartados (com o contato que existir, ex. WhatsApp/Instagram) e continue buscando o próximo** até bater a meta. Atenção: "site" que aponta para diretório de terceiros (localtreino, acheioprofissional etc.) não conta como site próprio — descarta pelo Filtro 2.
 
+## Regra B — "Empresas que anunciam" (fluxo e-mail-primeiro)
+
+Alternativa à regra clássica, escolhida no início do `/prospectar`. A tese: quem PAGA anúncio já tem verba e intenção de crescer comprovadas — é o lead mais quente. E quem clica no anúncio chega frio; sem um site forte pra gerar credibilidade imediata, o dinheiro do anúncio vaza. Aqui o e-mail vem ANTES da página: só se redesenha quem responder.
+
+**Qualificação (todos obrigatórios):**
+1. Filtro financeiro: nota ≥ 4.7 + avaliações ≥ 40.
+2. **Anuncia** — confirmar em ao menos UMA fonte pública, parando na 1ª: (a) rótulo `Patrocinado`/`Anúncio` no Google (Maps e Busca); (b) Biblioteca de Anúncios da Meta `https://www.facebook.com/ads/library` (país Brasil, busca nome/Instagram); (c) Centro de Transparência do Google Ads `https://adstransparency.google.com` (Brasil). Não confirmou → descarta.
+3. Site ruim (2+ problemas da lista acima) **OU sem site próprio** — os dois qualificam. Sem site é o lead mais quente (paga tráfego sem destino próprio).
+4. E-mail público (obrigatório, como na Regra A).
+
+**Coleta extra da Regra B** (além da coleta comum): `regra: B`, `evidência de anúncio` (o que confirmou + fonte + data), `tipo de presença` (site fraco / sem site), `achados` (2+ pontos objetivos se tem site; canais atuais + oportunidade se não tem), e `automação sugerida` (da tabela abaixo).
+
+### Tabela nicho → automação (escolher a MAIS dolorosa do nicho, uma só)
+
+A automação citada no e-mail deve ser específica e óbvia pro nicho. Escolha uma:
+
+| Nicho | Automação a oferecer (a dor nº 1) |
+|---|---|
+| Clínicas / saúde (nutri, psi, dentista, fisio, médicos) | Confirmação e lembrete automático de consulta por WhatsApp (reduz falta/no-show) |
+| Psicólogos / psiquiatras | Agendamento online + triagem inicial por formulário antes da 1ª sessão |
+| Advogados | Formulário de triagem de casos + resposta automática imediata ao lead do anúncio |
+| Estética / salão / barbearia | Agendamento com lembrete + reengajamento automático de cliente inativo |
+| Academia / estúdio / personal | Captura do lead do anúncio → resposta instantânea no WhatsApp + agendamento de aula experimental |
+| Restaurante / food / delivery | Reserva/pedido por WhatsApp com confirmação automática |
+| Imobiliária / corretor | Qualificação automática do lead do anúncio + distribuição pro corretor + follow-up |
+| Pet (clínica/petshop) | Lembrete de vacina/retorno + agendamento de banho/consulta por WhatsApp |
+| E-commerce / loja local | Recuperação de carrinho + resposta automática a dúvida de produto |
+| **Qualquer nicho (curinga)** | **Resposta automática em segundos ao lead que vem do anúncio** — o lead pago que espera resposta esfria rápido; responder na hora é o que mais recupera venda |
+
+Na dúvida ou nicho fora da tabela, use o curinga (resposta instantânea ao lead do anúncio) — é universal e conversa direto com a dor de quem anuncia.
+
 ## Saída — Google Sheets + leads.md local
 
 Destino principal: PLANILHA DO GOOGLE (via conector do Google Drive: `create_file` com CSV em `textContent` e `contentMimeType: text/csv` — converte automaticamente para Sheets). Título `Leads Prospector — [nicho] [cidade]`; incluir qualificados e descartados, ranqueados por potencial (nota alta + site pior). Entregar o link ao usuário.
@@ -49,7 +80,11 @@ Cópia de trabalho local `leads.md` (mesmas colunas) para controle de status, j�
 | # | Nome | Nota | Aval. | E-mail | Telefone | Site atual | Motivo | Status | URL nova |
 ```
 
-Status possíveis: `novo`, `redesenhado`, `publicado`, `proposta enviada`. Quando um status mudar (redesenhar/publicar/proposta), regenerar a planilha do Google com os dados acumulados e atualizar o `dashboard.html` (skill `dashboard-leads`). Nunca sobrescrever leads antigos — apenas acrescentar e atualizar.
+Status possíveis por regra:
+- **Regra A (constrói-primeiro):** `novo` → `redesenhado` → `publicado` → `proposta enviada` → `respondeu` / `sem resposta`.
+- **Regra B (e-mail-primeiro):** `novo` → `email enviado` → `respondeu` → `redesenhado` → `publicado` → `fechado` (ou `sem resposta` após o follow-up). Na Regra B só se redesenha lead com status `respondeu`.
+
+Quando um status mudar, regenerar a planilha do Google com os dados acumulados e atualizar o `dashboard.html` (skill `dashboard-leads`). Nunca sobrescrever leads antigos — apenas acrescentar e atualizar.
 
 ## Boas práticas
 
